@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash board de Finanças</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Finanças pessoais</h1>
+        
+        <section class="cards-summary">
+            <div class="card">
+                <h3>Entradas</h3>
+                <p id="total-entradas" class="valor-entrada">R$ 0,00</p>
+            </div>
+            <div class="card">
+                <h3>Saídas</h3>
+                <p id="total-saidas" class="valor-saida">R$ 0,00</p>
+            </div>
+            <div class="card">
+                <h3>Saldo Total</h3>
+                <p id="saldo-total" class="valor-saldo">R$ 0,00</p>
+            </div>
+        </section>
+
+        <form id="form-transacao">
+            <input type="text" id="descricao" placeholder="Descrição (ex: Mercado)" required>
+            <input type="number" id="valor" step="0.01" placeholder="Valor (ex: 150.00)" required>
+            <select id="tipo">
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saída</option>
+            </select>
+            <select id="categoria">
+                <option value="alimentacao">Alimentação</option>
+                <option value="transporte">Transporte</option>
+                <option value="lazer">Lazer</option>
+                <option value="renda">Renda</option>
+                <option value="outros">Outros</option>
+            </select>
+            <button type="submit">Adicionar Transação</button>
+        </form>
+
+        <main>
+            <section class="content">
+                <h2>Histórico</h2>
+                <ul id="lista-transacoes"></ul>
+            </section>
+
+            <section class="chart-section">
+                <h2>Gastos por Categoria</h2>
+                <canvas id="grafico-categorias"></canvas>
+            </section>
+        </main>
+     </div>
+
+</body>
+</html>
